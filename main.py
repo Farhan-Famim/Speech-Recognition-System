@@ -3,10 +3,15 @@ from pydub import AudioSegment
 import io
 import os
 
+from deepmultilingualpunctuation import PunctuationModel  # NEW: punctuation restoration model
+
+punct_model = PunctuationModel()   # Load punctuation model once
+
 # -------- SETTINGS ----------
 INPUT_FILE = "input.wav"   # change if needed
 LANGUAGE = "en-US"         # "bn-BD" for Bangla
 # ----------------------------
+
 
 def load_audio(file_path):
     """
@@ -36,6 +41,10 @@ def recognize_speech(audio_path):
     try:
         print("Recognizing speech...")
         text = recognizer.recognize_google(audio_data, language=LANGUAGE)
+
+        # Add Punctuation
+        text = punct_model.restore_punctuation(text)
+
         return text
 
     except sr.UnknownValueError:
@@ -46,8 +55,6 @@ def recognize_speech(audio_path):
 
 
 def main():
-    print("Speech Recognition System Started\n")
-
     wav_file = load_audio(INPUT_FILE)
     result = recognize_speech(wav_file)
 
