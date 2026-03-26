@@ -1,66 +1,100 @@
-import speech_recognition as sr
-from pydub import AudioSegment
-import io
+
+# VERSION 2.0
+# - New dataset
+# - wer score test
+
+import whisper
 import os
+from jiwer import wer  #used measure score of accuracy
 
-from deepmultilingualpunctuation import PunctuationModel  # NEW: punctuation restoration model
+# Load model once
+model = whisper.load_model("base")
 
-punct_model = PunctuationModel()   # Load punctuation model once
+DATASET_PATH = "dataset"
+TRANSCRIPT_FILE = "dataset/transcripts.txt"
 
-# -------- SETTINGS ----------
-INPUT_FILE = "input.wav"   # change if needed
-LANGUAGE = "en-US"         # "bn-BD" for Bangla
-# ----------------------------
-
-
-def load_audio(file_path):
-    """
-    Loads audio file and ensures it is WAV format.
-    If already WAV, just read it.
-    """
-    ext = os.path.splitext(file_path)[1].lower()
-
-    if ext == ".wav":
-        return file_path
-
-    # Convert to wav if other format
-    print("Converting audio to wav...")
-    sound = AudioSegment.from_file(file_path)
-    wav_path = "converted_audio.wav"
-    sound.export(wav_path, format="wav")
-    return wav_path
+TEST_FILES = [
+    "speaker_1/audio_1.wav",
+    "speaker_1/audio_2.wav",
+    "speaker_1/audio_3.wav"
+]
 
 
-def recognize_speech(audio_path):
-    recognizer = sr.Recognizer()
+def load_transcripts(file_path):
+    transcripts = {}
+    
+    with open(file_path, "r", encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            
+            path, text = line.split("|", 1)
+            transcripts[path.strip()] = text.strip()
+    
+    return transcripts
 
-    with sr.AudioFile(audio_path) as source:
-        print("Reading audio...")
-        audio_data = recognizer.record(source)
 
-    try:
-        print("Recognizing speech...")
-        text = recognizer.recognize_google(audio_data, language=LANGUAGE)
+def transcribe_and_compare(transcripts):
+    print("Running Whisper on dataset...\n")
+    
+    for audio_path, ground_truth in transcripts.items():
+        full_path = os.path.join(DATASET_PATH, audio_path)
+        
+        if not os.path.exists(full_path):
+            print(f"File not found: {full_path}")
+            continue
+        
+        result = model.transcribe(full_path)
+        predicted = result["text"].strip()
+        
+        error = wer(ground_truth.lower(), predicted.lower())
 
-        # Add Punctuation
-        text = punct_model.restore_punctuation(text)
+        print(f"FILE: {audio_path}")
+        print(f"GT   : {ground_truth}")
+        print(f"PRED : {predicted}")
+        print('\nScore: ')
+        print(f"WER  : {error:.2f}")
+        print("-" * 50)
 
-        return text
 
-    except sr.UnknownValueError:
-        return "Speech could not be understood."
+from jiwer import wer  # <-- MUST be at top
 
-    except sr.RequestError:
-        return "API unavailable or internet problem."
+
+def transcribe_selected(transcripts, selected_files):
+    print("Running Whisper on selected files...\n")
+    
+    for audio_path in selected_files:
+        if audio_path not in transcripts:
+            print(f"Missing transcript for {audio_path}")
+            continue
+        
+        full_path = os.path.join(DATASET_PATH, audio_path)
+        
+        if not os.path.exists(full_path):
+            print(f"File not found: {full_path}")
+            continue
+        
+        result = model.transcribe(full_path)
+        predicted = result["text"].strip()
+        ground_truth = transcripts[audio_path]
+        
+        # get wer score
+        error = wer(ground_truth.lower(), predicted.lower())
+        
+        print(f"FILE: {audio_path}")
+        print(f"GT   : {ground_truth}")
+        print(f"PRED : {predicted}")
+        print(f"WER  : {error:.2f}")   # e.g. WER=0.2 means 20% words wrong
+        print("-" * 50)
 
 
 def main():
-    wav_file = load_audio(INPUT_FILE)
-    result = recognize_speech(wav_file)
-
-    print("\nRecognized Text:")
-    print("----------------")
-    print(result)
+    print("Whisper Evaluation System\n")
+    
+    transcripts = load_transcripts(TRANSCRIPT_FILE)
+    #transcribe_and_compare(transcripts)
+    transcribe_selected(transcripts, TEST_FILES)
 
 
 if __name__ == "__main__":
