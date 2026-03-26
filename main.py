@@ -1,11 +1,11 @@
 
-# VERSION 2.0
-# - New dataset
-# - wer score test
+# VERSION 2.1
+# - Normalization of texts in order to improve wer scores
 
 import whisper
 import os
-from jiwer import wer  #used measure score of accuracy
+import re
+from jiwer import wer  # used to measure accuracy
 
 # Load model once
 model = whisper.load_model("base")
@@ -14,10 +14,25 @@ DATASET_PATH = "dataset"
 TRANSCRIPT_FILE = "dataset/transcripts.txt"
 
 TEST_FILES = [
-    "speaker_1/audio_1.wav",
-    "speaker_1/audio_2.wav",
-    "speaker_1/audio_3.wav"
+    "speaker_3/audio_1.wav",
+    "speaker_3/audio_2.wav",
+    "speaker_3/audio_3.wav",
+    "speaker_3/audio_4.wav",
+    "speaker_3/audio_5.wav"
 ]
+
+
+# 🔧 Normalize text (IMPORTANT for fair WER)
+def normalize_text(text):
+    text = text.lower()
+    
+    # remove punctuation
+    text = re.sub(r'[^\w\s]', '', text)
+    
+    # remove extra spaces
+    text = re.sub(r'\s+', ' ', text).strip()
+    
+    return text
 
 
 def load_transcripts(file_path):
@@ -34,7 +49,7 @@ def load_transcripts(file_path):
     
     return transcripts
 
-
+# Transcribe all the samples in the dataset
 def transcribe_and_compare(transcripts):
     print("Running Whisper on dataset...\n")
     
@@ -58,9 +73,6 @@ def transcribe_and_compare(transcripts):
         print("-" * 50)
 
 
-from jiwer import wer  # <-- MUST be at top
-
-
 def transcribe_selected(transcripts, selected_files):
     print("Running Whisper on selected files...\n")
     
@@ -79,13 +91,16 @@ def transcribe_selected(transcripts, selected_files):
         predicted = result["text"].strip()
         ground_truth = transcripts[audio_path]
         
-        # get wer score
-        error = wer(ground_truth.lower(), predicted.lower())
+        # 🔥 Normalize before WER
+        gt_clean = normalize_text(ground_truth)
+        pred_clean = normalize_text(predicted)
+        
+        error = wer(gt_clean, pred_clean)
         
         print(f"FILE: {audio_path}")
         print(f"GT   : {ground_truth}")
         print(f"PRED : {predicted}")
-        print(f"WER  : {error:.2f}")   # e.g. WER=0.2 means 20% words wrong
+        print(f"WER  : {error:.2f}")
         print("-" * 50)
 
 
@@ -93,8 +108,8 @@ def main():
     print("Whisper Evaluation System\n")
     
     transcripts = load_transcripts(TRANSCRIPT_FILE)
-    #transcribe_and_compare(transcripts)
     transcribe_selected(transcripts, TEST_FILES)
+    #transcribe_and_compare(transcripts)
 
 
 if __name__ == "__main__":
