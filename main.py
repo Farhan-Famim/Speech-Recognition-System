@@ -1,6 +1,7 @@
 
-# VERSION 2.1
-# - Normalization of texts in order to improve wer scores
+# VERSION 2.2
+# - handle multiple speaker
+# - recognize speaker
 
 import whisper
 import os
