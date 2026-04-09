@@ -1,0 +1,10 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+.DS_Store
+uploads/
+artifacts/
+custom_dataset/raw/
+custom_dataset/audio/
+

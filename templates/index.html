@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Speech Recognition UI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <p class="eyebrow">Speech Command Demo</p>
+      <h1>Switch between your trained model and Whisper baseline during the same demo.</h1>
+      <p class="lede">
+        Use the trained model to showcase your own work, then switch to Whisper baseline
+        to compare how a large pre-trained recognizer behaves on the same commands.
+      </p>
+    </section>
+
+    <section class="panel mode-panel">
+      <div class="panel-head">
+        <h2>Inference Mode</h2>
+        <span>Switch instantly during your presentation</span>
+      </div>
+      <div class="mode-grid">
+        <label class="field">
+          <span>Mode</span>
+          <select id="inference-mode">
+            <option value="trained">Trained Model</option>
+            <option value="whisper">Whisper Baseline</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>Trained checkpoint</span>
+          <input id="checkpoint-path" type="text" value="{{ checkpoint_path }}" readonly>
+        </label>
+        <label class="field">
+          <span>Whisper model</span>
+          <input id="whisper-model" type="text" value="{{ default_model }}">
+        </label>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="panel">
+        <div class="panel-head">
+          <h2>Audio File</h2>
+          <span id="upload-help">Upload a converted WAV file</span>
+        </div>
+        <form id="upload-form" class="stack">
+          <label class="dropzone" for="audio-file">
+            <input id="audio-file" name="audio" type="file" accept=".wav,.mp3,.m4a,.mp4,.mpeg,.mpga,.webm,audio/*">
+            <strong id="upload-title">Select a WAV file</strong>
+            <span id="selected-file">No file selected</span>
+          </label>
+          <button type="submit" class="button" id="upload-submit">Predict Command</button>
+        </form>
+      </article>
+
+      <article class="panel">
+        <div class="panel-head">
+          <h2>Live Recording</h2>
+          <span id="record-help">Record in the browser and predict the command</span>
+        </div>
+        <div class="stack">
+          <div class="record-box">
+            <p id="record-status">Microphone idle</p>
+            <div class="meter" aria-hidden="true">
+              <div id="meter-fill"></div>
+            </div>
+          </div>
+          <div class="actions">
+            <button id="start-recording" class="button" type="button">Start Recording</button>
+            <button id="stop-recording" class="button button-ghost" type="button" disabled>Stop Recording</button>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="panel result-panel">
+      <div class="panel-head">
+        <h2 id="result-title">Predicted Command</h2>
+        <span id="result-meta">Waiting for input</span>
+      </div>
+      <div id="feedback" class="feedback" hidden></div>
+      <pre id="result-text" class="result-text">Your result will appear here.</pre>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
