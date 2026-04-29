@@ -1,61 +1,106 @@
-# Speech Recognition Project
+# Speech Recognition System
 
-This project now supports two tracks:
+This project is a web-based speech recognition demo for CSE445. It supports:
 
-- Whisper transcription for uploaded audio and live speech
-- a custom trainable command-recognition model built from your own recordings
+- command recognition with a custom trained command model
+- speaker recognition with an SVM voice model
+- Whisper baseline transcription for comparison
+- browser audio upload and live microphone recording
 
-## What exists right now
+## Project Structure
 
-- `temp.py`: transcribe one audio file with Whisper
-- `main.py`: evaluate Whisper against your own manifest file
-- `app.py`: web UI for file upload and live microphone recording
-- `transcriber.py`: shared backend service used by both CLI scripts and the web app
-- `train_command_model.py`: train a speech-command classifier on your own dataset
-- `evaluate_command_model.py`: evaluate the trained command model
-- `command_model.py`: audio loading, feature extraction, dataset, and model code
-- `custom_dataset/metadata.csv`: your own dataset manifest
+```text
+speech_recognition_1/
+├── main.py                         # Main file to run the web app
+├── README.md                       # Project explanation and run guide
+├── requirements.txt                # Python dependencies
+├── data/
+│   └── custom_dataset/             # Dataset manifest and WAV recordings
+├── support/                        # Supporting Python modules and training scripts
+├── static/                         # Browser JavaScript and CSS
+├── templates/                      # Flask HTML template
+├── artifacts/                      # Trained model files used by the app
+└── others/                         # PPTX, reports, and demo video go here
+```
 
-## macOS / Linux run steps
+## Included Dataset
 
-From the project root:
+The dataset is stored in:
+
+```text
+data/custom_dataset/
+```
+
+Important files:
+
+- `data/custom_dataset/metadata.csv`: dataset manifest
+- `data/custom_dataset/audio/`: WAV recordings
+
+The manifest columns are:
+
+```text
+audio_path, transcript, split, speaker_id, language, command_id
+```
+
+## Included Models
+
+The app is ready to run after cloning because the trained model files are included:
+
+- `artifacts/command_model/best_command_model.pt`
+- `artifacts/command_model/labels.json`
+- `artifacts/speaker_model/speaker_model.pkl`
+
+The resplit checkpoint used for report-style held-out evaluation is also included:
+
+- `artifacts/command_model_resplit/best_command_model.pt`
+- `artifacts/command_model_resplit/labels.json`
+
+## Setup
+
+Use Python 3.10 or newer.
 
 ```bash
 cd speech_recognition_1
 python3 -m venv .venv
-. .venv/bin/activate
+source .venv/bin/activate
 pip install -r requirements.txt
-python temp.py --input path/to/file.wav
-python main.py --manifest custom_dataset/metadata.csv --split test
-python train_command_model.py --manifest custom_dataset/metadata.csv --resplit-by-take --output-dir artifacts/command_model_resplit
-python evaluate_command_model.py --manifest custom_dataset/metadata.csv
-python app.py
 ```
 
-Then open `http://127.0.0.1:5050`.
+On Windows PowerShell:
 
-## Training and evaluation checkpoints
-
-Use the resplit checkpoint for report accuracy:
-
-```bash
-python train_command_model.py \
-  --manifest custom_dataset/metadata.csv \
-  --output-dir artifacts/command_model_resplit \
-  --resplit-by-take \
-  --epochs 60 \
-  --batch-size 16 \
-  --learning-rate 5e-4 \
-  --weight-decay 1e-4
-
-python evaluate_command_model.py --manifest custom_dataset/metadata.csv --split test
+```powershell
+cd speech_recognition_1
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
 ```
 
-Use the train-all checkpoint for the final demo app:
+## Run The Project
+
+Start the web app:
 
 ```bash
-python train_command_model.py \
-  --manifest custom_dataset/metadata.csv \
+python main.py
+```
+
+Then open:
+
+```text
+http://127.0.0.1:5050
+```
+
+The UI lets you choose between:
+
+- `Trained Model`: predicts one of the 10 fixed commands and the speaker
+- `Whisper Baseline`: transcribes the speech and predicts the speaker
+
+## Train Or Retrain Models
+
+Train the command model:
+
+```bash
+python -m support.train_command_model \
+  --manifest data/custom_dataset/metadata.csv \
   --output-dir artifacts/command_model \
   --train-all \
   --epochs 60 \
@@ -64,32 +109,44 @@ python train_command_model.py \
   --weight-decay 1e-4
 ```
 
-The train-all checkpoint uses every recording, so it is useful for the demo but should not be reported as held-out test accuracy.
+Train the speaker recognition model:
+
+```bash
+python -m support.train_svm --manifest data/custom_dataset/metadata.csv
+```
+
+Evaluate the command model on the test split:
+
+```bash
+python -m support.evaluate_command_model \
+  --manifest data/custom_dataset/metadata.csv \
+  --checkpoint artifacts/command_model_resplit/best_command_model.pt \
+  --split test
+```
+
+Evaluate Whisper on the manifest:
+
+```bash
+python -m support.evaluate_whisper \
+  --manifest data/custom_dataset/metadata.csv \
+  --split test
+```
 
 ## Notes
 
-- The bundled `venv/` folder in this repository is a Windows virtual environment, so it should not be used on macOS.
-- The web app runs on port `5050` to avoid the macOS port `5000` AirPlay conflict.
-- Local `.wav` files can now run without `ffmpeg`.
-- Live microphone recording is captured in the browser and encoded to WAV before upload, so it also avoids `ffmpeg` for the browser recording path.
-- Whisper still needs to download a model such as `base` the first time you run it, unless that model is already cached.
-- If you have a certificate issue while downloading the model, fix that first or pre-download the model on a trusted network.
-- The custom command model expects `16-bit PCM .wav` files.
+- The app runs on port `5050`.
+- Live microphone recording is captured in the browser and sent as WAV.
+- The trained command model supports WAV input.
+- Optional: install `ffmpeg` for non-WAV Whisper uploads such as MP3, M4A, MP4, or WebM.
+- Whisper may download the `base` model the first time it is used.
+- Do not commit `.venv/`, `venv/`, `__pycache__/`, or `uploads/`.
 
-## About your own training data
+## Other Deliverables
 
-For a fixed 10-command project, training a custom command classifier is a strong practical choice. It is smaller, faster, and more realistic than full end-to-end ASR fine-tuning on only a few hundred recordings.
+Put these files in the `others/` folder before final submission:
 
-Recommended workflow:
-
-1. Record your own 10 phrases for multiple speakers.
-2. Store them as WAV files.
-3. Fill `custom_dataset/metadata.csv`.
-4. Train the command model with `train_command_model.py`.
-5. Evaluate it with `evaluate_command_model.py`.
-6. Use Whisper and the command model together in your report:
-   baseline transcription plus your own trained recognizer.
-
-## Existing sample dataset
-
-The old `dataset/` folder is no longer used by the main evaluation flow. You can keep it as legacy reference data or delete it manually once your own `custom_dataset` is ready.
+- final presentation PPTX
+- final report PDF
+- update presentation PPTX
+- update report PDF
+- one-minute demo video

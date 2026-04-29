@@ -15,6 +15,12 @@ const uploadSubmit = document.getElementById("upload-submit");
 const recordHelp = document.getElementById("record-help");
 const resultTitle = document.getElementById("result-title");
 const modeStatus = document.getElementById("mode-status");
+const summaryState = document.getElementById("summary-state");
+const summaryMode = document.getElementById("summary-mode");
+const summarySpeaker = document.getElementById("summary-speaker");
+const summaryMic = document.getElementById("summary-mic");
+const summaryConfidence = document.getElementById("summary-confidence");
+const summaryResult = document.getElementById("summary-result");
 
 let audioContext = null;
 let audioStream = null;
@@ -92,6 +98,9 @@ stopButton.addEventListener("click", async () => {
 });
 
 function setBusyState(message) {
+  summaryState.textContent = "Processing";
+  summaryResult.textContent = "Working...";
+  summaryConfidence.textContent = "--";
   resultMeta.textContent = message;
   resultText.textContent = "Working...";
   feedback.hidden = true;
@@ -104,20 +113,29 @@ function handleTranscriptResponse(payload, fallbackName) {
   }
 
   feedback.hidden = true;
+  summaryState.textContent = "Complete";
+  updateSpeakerSummary(payload);
 
   if (payload.mode === "trained") {
     const confidence = typeof payload.confidence === "number" ? `${(payload.confidence * 100).toFixed(1)}%` : "n/a";
-    resultMeta.textContent = `${payload.filename || fallbackName} / ${payload.command_id} / confidence: ${confidence}`;
-    resultText.textContent = `${payload.command_text}\n\nCommand ID: ${payload.command_id}`;
+    const speakerMeta = payload.speaker_id ? ` / speaker: ${payload.speaker_id}` : "";
+    resultMeta.textContent = `${payload.filename || fallbackName} / ${payload.command_id}${speakerMeta} / confidence: ${confidence}`;
+    resultText.textContent = `${payload.command_text}\n\nCommand ID: ${payload.command_id}\nSpeaker: ${speakerDisplay(payload)}`;
+    summaryResult.textContent = payload.command_text;
+    summaryConfidence.textContent = confidence;
     showFeedback("Prediction completed.", "success");
   } else {
-    resultMeta.textContent = `${payload.filename || fallbackName} / whisper:${payload.model}`;
+    const speakerMeta = payload.speaker_id ? ` / speaker: ${payload.speaker_id}` : "";
+    resultMeta.textContent = `${payload.filename || fallbackName} / whisper:${payload.model}${speakerMeta}`;
     resultText.textContent = payload.transcript || "(No text returned)";
+    summaryResult.textContent = payload.transcript || "No text returned";
+    summaryConfidence.textContent = "Transcript";
     showFeedback("Transcription completed.", "success");
   }
 }
 
 function showFeedback(message, type) {
+  summaryState.textContent = type === "error" ? "Error" : "Complete";
   feedback.hidden = false;
   feedback.className = `feedback ${type}`;
   feedback.textContent = message;
@@ -125,6 +143,9 @@ function showFeedback(message, type) {
   if (type === "error") {
     resultMeta.textContent = "Request failed";
     resultText.textContent = "No command prediction available.";
+    summarySpeaker.textContent = "Unknown";
+    summaryResult.textContent = "No result";
+    summaryConfidence.textContent = "--";
   }
 }
 
@@ -161,6 +182,8 @@ async function startRecording() {
   isRecording = true;
   startButton.disabled = true;
   stopButton.disabled = false;
+  summaryState.textContent = "Listening";
+  summaryMic.textContent = "Recording";
   recordStatus.textContent = "Recording...";
   resultMeta.textContent = "Listening";
   resultText.textContent = inferenceMode.value === "trained"
@@ -181,6 +204,12 @@ function syncModeUi() {
   uploadSubmit.textContent = trainedMode ? "Predict Command" : "Transcribe with Whisper";
   recordHelp.textContent = trainedMode ? "Browser WAV" : "Browser audio";
   modeStatus.textContent = trainedMode ? "Trained model" : "Whisper";
+  summaryState.textContent = "Ready";
+  summaryMode.textContent = trainedMode ? "Trained Model" : "Whisper";
+  summarySpeaker.textContent = "Waiting";
+  summaryMic.textContent = "Idle";
+  summaryConfidence.textContent = "--";
+  summaryResult.textContent = "Waiting for input";
   resultTitle.textContent = trainedMode ? "Predicted Command" : "Transcript";
   resultText.textContent = trainedMode
     ? "Your predicted command will appear here."
@@ -195,6 +224,8 @@ async function stopRecording() {
   isRecording = false;
   startButton.disabled = false;
   stopButton.disabled = true;
+  summaryState.textContent = "Processing";
+  summaryMic.textContent = "Idle";
   recordStatus.textContent = "Microphone idle";
   meterFill.style.width = "8%";
 
@@ -260,4 +291,28 @@ function writeAscii(view, offset, text) {
   for (let i = 0; i < text.length; i += 1) {
     view.setUint8(offset + i, text.charCodeAt(i));
   }
+}
+
+function speakerDisplay(payload) {
+  if (payload.speaker_id) {
+    if (typeof payload.speaker_confidence === "number") {
+      return `${payload.speaker_id} (${(payload.speaker_confidence * 100).toFixed(1)}%)`;
+    }
+    return payload.speaker_id;
+  }
+
+  if (payload.speaker_status === "model_missing") {
+    return "Train model first";
+  }
+  if (payload.speaker_status === "feature_error") {
+    return "Could not read voice";
+  }
+  if (payload.speaker_status === "dependency_missing") {
+    return "Install dependencies";
+  }
+  return "Unknown";
+}
+
+function updateSpeakerSummary(payload) {
+  summarySpeaker.textContent = speakerDisplay(payload);
 }

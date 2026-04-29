@@ -83,6 +83,40 @@
             </article>
           </div>
         </section>
+
+        <section class="panel summary-panel">
+          <div class="panel-head">
+            <div>
+              <p class="section-kicker">Session</p>
+              <h2>Speaker Monitor</h2>
+            </div>
+            <span id="summary-state">Ready</span>
+          </div>
+
+          <div class="summary-grid">
+            <div class="summary-card">
+              <span>Mode</span>
+              <strong id="summary-mode">Trained Model</strong>
+            </div>
+            <div class="summary-card">
+              <span>Speaker</span>
+              <strong id="summary-speaker">Waiting</strong>
+            </div>
+            <div class="summary-card">
+              <span>Microphone</span>
+              <strong id="summary-mic">Idle</strong>
+            </div>
+            <div class="summary-card">
+              <span>Confidence</span>
+              <strong id="summary-confidence">--</strong>
+            </div>
+          </div>
+
+          <div class="summary-result">
+            <span>Last result</span>
+            <strong id="summary-result">Waiting for input</strong>
+          </div>
+        </section>
       </aside>
 
       <section class="result-column">

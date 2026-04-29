@@ -1,0 +1,301 @@
+audio_path,transcript,split,speaker_id,language,command_id
+data/custom_dataset/audio/Speaker1/speaker_01_phrase_01_take_01.wav,Turn on the light,train,speaker_01,en,light_on
+data/custom_dataset/audio/Speaker1/speaker_01_phrase_01_take_02.wav,Turn on the light,val,speaker_01,en,light_on
+data/custom_dataset/audio/Speaker1/speaker_01_phrase_01_take_03.wav,Turn on the light,test,speaker_01,en,light_on
+data/custom_dataset/audio/Speaker1/speaker_01_phrase_02_take_01.wav,Turn off the light,train,speaker_01,en,light_off
+data/custom_dataset/audio/Speaker1/speaker_01_phrase_02_take_02.wav,Turn off the light,val,speaker_01,en,light_off
+data/custom_dataset/audio/Speaker1/speaker_01_phrase_02_take_03.wav,Turn off the light,test,speaker_01,en,light_off
+data/custom_dataset/audio/Speaker1/speaker_01_phrase_03_take_01.wav,Open the door,train,speaker_01,en,door_open
+data/custom_dataset/audio/Speaker1/speaker_01_phrase_03_take_02.wav,Open the door,val,speaker_01,en,door_open
+data/custom_dataset/audio/Speaker1/speaker_01_phrase_03_take_03.wav,Open the door,test,speaker_01,en,door_open
+data/custom_dataset/audio/Speaker1/speaker_01_phrase_04_take_01.wav,Close the door,train,speaker_01,en,door_close
+data/custom_dataset/audio/Speaker1/speaker_01_phrase_04_take_02.wav,Close the door,val,speaker_01,en,door_close
+data/custom_dataset/audio/Speaker1/speaker_01_phrase_04_take_03.wav,Close the door,test,speaker_01,en,door_close
+data/custom_dataset/audio/Speaker1/speaker_01_phrase_05_take_01.wav,Play the music,train,speaker_01,en,music_play
+data/custom_dataset/audio/Speaker1/speaker_01_phrase_05_take_02.wav,Play the music,val,speaker_01,en,music_play
+data/custom_dataset/audio/Speaker1/speaker_01_phrase_05_take_03.wav,Play the music,test,speaker_01,en,music_play
+data/custom_dataset/audio/Speaker1/speaker_01_phrase_06_take_01.wav,Stop the music,train,speaker_01,en,music_stop
+data/custom_dataset/audio/Speaker1/speaker_01_phrase_06_take_02.wav,Stop the music,val,speaker_01,en,music_stop
+data/custom_dataset/audio/Speaker1/speaker_01_phrase_06_take_03.wav,Stop the music,test,speaker_01,en,music_stop
+data/custom_dataset/audio/Speaker1/speaker_01_phrase_07_take_01.wav,Increase the volume,train,speaker_01,en,volume_up
+data/custom_dataset/audio/Speaker1/speaker_01_phrase_07_take_02.wav,Increase the volume,val,speaker_01,en,volume_up
+data/custom_dataset/audio/Speaker1/speaker_01_phrase_07_take_03.wav,Increase the volume,test,speaker_01,en,volume_up
+data/custom_dataset/audio/Speaker1/speaker_01_phrase_08_take_01.wav,Decrease the volume,train,speaker_01,en,volume_down
+data/custom_dataset/audio/Speaker1/speaker_01_phrase_08_take_02.wav,Decrease the volume,val,speaker_01,en,volume_down
+data/custom_dataset/audio/Speaker1/speaker_01_phrase_08_take_03.wav,Decrease the volume,test,speaker_01,en,volume_down
+data/custom_dataset/audio/Speaker1/speaker_01_phrase_09_take_01.wav,What is the time,train,speaker_01,en,what_time
+data/custom_dataset/audio/Speaker1/speaker_01_phrase_09_take_02.wav,What is the time,val,speaker_01,en,what_time
+data/custom_dataset/audio/Speaker1/speaker_01_phrase_09_take_03.wav,What is the time,test,speaker_01,en,what_time
+data/custom_dataset/audio/Speaker1/speaker_01_phrase_10_take_01.wav,Call my friend,train,speaker_01,en,call_friend
+data/custom_dataset/audio/Speaker1/speaker_01_phrase_10_take_02.wav,Call my friend,val,speaker_01,en,call_friend
+data/custom_dataset/audio/Speaker1/speaker_01_phrase_10_take_03.wav,Call my friend,test,speaker_01,en,call_friend
+data/custom_dataset/audio/Speaker2/speaker_02_phrase_01_take_01.wav,Turn on the light,train,speaker_02,en,light_on
+data/custom_dataset/audio/Speaker2/speaker_02_phrase_01_take_02.wav,Turn on the light,val,speaker_02,en,light_on
+data/custom_dataset/audio/Speaker2/speaker_02_phrase_01_take_03.wav,Turn on the light,test,speaker_02,en,light_on
+data/custom_dataset/audio/Speaker2/speaker_02_phrase_02_take_01.wav,Turn off the light,train,speaker_02,en,light_off
+data/custom_dataset/audio/Speaker2/speaker_02_phrase_02_take_02.wav,Turn off the light,val,speaker_02,en,light_off
+data/custom_dataset/audio/Speaker2/speaker_02_phrase_02_take_03.wav,Turn off the light,test,speaker_02,en,light_off
+data/custom_dataset/audio/Speaker2/speaker_02_phrase_03_take_01.wav,Open the door,train,speaker_02,en,door_open
+data/custom_dataset/audio/Speaker2/speaker_02_phrase_03_take_02.wav,Open the door,val,speaker_02,en,door_open
+data/custom_dataset/audio/Speaker2/speaker_02_phrase_03_take_03.wav,Open the door,test,speaker_02,en,door_open
+data/custom_dataset/audio/Speaker2/speaker_02_phrase_04_take_01.wav,Close the door,train,speaker_02,en,door_close
+data/custom_dataset/audio/Speaker2/speaker_02_phrase_04_take_02.wav,Close the door,val,speaker_02,en,door_close
+data/custom_dataset/audio/Speaker2/speaker_02_phrase_04_take_03.wav,Close the door,test,speaker_02,en,door_close
+data/custom_dataset/audio/Speaker2/speaker_02_phrase_05_take_01.wav,Play the music,train,speaker_02,en,music_play
+data/custom_dataset/audio/Speaker2/speaker_02_phrase_05_take_02.wav,Play the music,val,speaker_02,en,music_play
+data/custom_dataset/audio/Speaker2/speaker_02_phrase_05_take_03.wav,Play the music,test,speaker_02,en,music_play
+data/custom_dataset/audio/Speaker2/speaker_02_phrase_06_take_01.wav,Stop the music,train,speaker_02,en,music_stop
+data/custom_dataset/audio/Speaker2/speaker_02_phrase_06_take_02.wav,Stop the music,val,speaker_02,en,music_stop
+data/custom_dataset/audio/Speaker2/speaker_02_phrase_06_take_03.wav,Stop the music,test,speaker_02,en,music_stop
+data/custom_dataset/audio/Speaker2/speaker_02_phrase_07_take_01.wav,Increase the volume,train,speaker_02,en,volume_up
+data/custom_dataset/audio/Speaker2/speaker_02_phrase_07_take_02.wav,Increase the volume,val,speaker_02,en,volume_up
+data/custom_dataset/audio/Speaker2/speaker_02_phrase_07_take_03.wav,Increase the volume,test,speaker_02,en,volume_up
+data/custom_dataset/audio/Speaker2/speaker_02_phrase_08_take_01.wav,Decrease the volume,train,speaker_02,en,volume_down
+data/custom_dataset/audio/Speaker2/speaker_02_phrase_08_take_02.wav,Decrease the volume,val,speaker_02,en,volume_down
+data/custom_dataset/audio/Speaker2/speaker_02_phrase_08_take_03.wav,Decrease the volume,test,speaker_02,en,volume_down
+data/custom_dataset/audio/Speaker2/speaker_02_phrase_09_take_01.wav,What is the time,train,speaker_02,en,what_time
+data/custom_dataset/audio/Speaker2/speaker_02_phrase_09_take_02.wav,What is the time,val,speaker_02,en,what_time
+data/custom_dataset/audio/Speaker2/speaker_02_phrase_09_take_03.wav,What is the time,test,speaker_02,en,what_time
+data/custom_dataset/audio/Speaker2/speaker_02_phrase_10_take_01.wav,Call my friend,train,speaker_02,en,call_friend
+data/custom_dataset/audio/Speaker2/speaker_02_phrase_10_take_02.wav,Call my friend,val,speaker_02,en,call_friend
+data/custom_dataset/audio/Speaker2/speaker_02_phrase_10_take_03.wav,Call my friend,test,speaker_02,en,call_friend
+data/custom_dataset/audio/Speaker3/speaker_03_phrase_01_take_01.wav,Turn on the light,train,speaker_03,en,light_on
+data/custom_dataset/audio/Speaker3/speaker_03_phrase_01_take_02.wav,Turn on the light,val,speaker_03,en,light_on
+data/custom_dataset/audio/Speaker3/speaker_03_phrase_01_take_03.wav,Turn on the light,test,speaker_03,en,light_on
+data/custom_dataset/audio/Speaker3/speaker_03_phrase_02_take_01.wav,Turn off the light,train,speaker_03,en,light_off
+data/custom_dataset/audio/Speaker3/speaker_03_phrase_02_take_02.wav,Turn off the light,val,speaker_03,en,light_off
+data/custom_dataset/audio/Speaker3/speaker_03_phrase_02_take_03.wav,Turn off the light,test,speaker_03,en,light_off
+data/custom_dataset/audio/Speaker3/speaker_03_phrase_03_take_01.wav,Open the door,train,speaker_03,en,door_open
+data/custom_dataset/audio/Speaker3/speaker_03_phrase_03_take_02.wav,Open the door,val,speaker_03,en,door_open
+data/custom_dataset/audio/Speaker3/speaker_03_phrase_03_take_03.wav,Open the door,test,speaker_03,en,door_open
+data/custom_dataset/audio/Speaker3/speaker_03_phrase_04_take_01.wav,Close the door,train,speaker_03,en,door_close
+data/custom_dataset/audio/Speaker3/speaker_03_phrase_04_take_02.wav,Close the door,val,speaker_03,en,door_close
+data/custom_dataset/audio/Speaker3/speaker_03_phrase_04_take_03.wav,Close the door,test,speaker_03,en,door_close
+data/custom_dataset/audio/Speaker3/speaker_03_phrase_05_take_01.wav,Play the music,train,speaker_03,en,music_play
+data/custom_dataset/audio/Speaker3/speaker_03_phrase_05_take_02.wav,Play the music,val,speaker_03,en,music_play
+data/custom_dataset/audio/Speaker3/speaker_03_phrase_05_take_03.wav,Play the music,test,speaker_03,en,music_play
+data/custom_dataset/audio/Speaker3/speaker_03_phrase_06_take_01.wav,Stop the music,train,speaker_03,en,music_stop
+data/custom_dataset/audio/Speaker3/speaker_03_phrase_06_take_02.wav,Stop the music,val,speaker_03,en,music_stop
+data/custom_dataset/audio/Speaker3/speaker_03_phrase_06_take_03.wav,Stop the music,test,speaker_03,en,music_stop
+data/custom_dataset/audio/Speaker3/speaker_03_phrase_07_take_01.wav,Increase the volume,train,speaker_03,en,volume_up
+data/custom_dataset/audio/Speaker3/speaker_03_phrase_07_take_02.wav,Increase the volume,val,speaker_03,en,volume_up
+data/custom_dataset/audio/Speaker3/speaker_03_phrase_07_take_03.wav,Increase the volume,test,speaker_03,en,volume_up
+data/custom_dataset/audio/Speaker3/speaker_03_phrase_08_take_01.wav,Decrease the volume,train,speaker_03,en,volume_down
+data/custom_dataset/audio/Speaker3/speaker_03_phrase_08_take_02.wav,Decrease the volume,val,speaker_03,en,volume_down
+data/custom_dataset/audio/Speaker3/speaker_03_phrase_08_take_03.wav,Decrease the volume,test,speaker_03,en,volume_down
+data/custom_dataset/audio/Speaker3/speaker_03_phrase_09_take_01.wav,What is the time,train,speaker_03,en,what_time
+data/custom_dataset/audio/Speaker3/speaker_03_phrase_09_take_02.wav,What is the time,val,speaker_03,en,what_time
+data/custom_dataset/audio/Speaker3/speaker_03_phrase_09_take_03.wav,What is the time,test,speaker_03,en,what_time
+data/custom_dataset/audio/Speaker3/speaker_03_phrase_10_take_01.wav,Call my friend,train,speaker_03,en,call_friend
+data/custom_dataset/audio/Speaker3/speaker_03_phrase_10_take_02.wav,Call my friend,val,speaker_03,en,call_friend
+data/custom_dataset/audio/Speaker3/speaker_03_phrase_10_take_03.wav,Call my friend,test,speaker_03,en,call_friend
+data/custom_dataset/audio/Speaker4/speaker_04_phrase_01_take_01.wav,Turn on the light,train,speaker_04,en,light_on
+data/custom_dataset/audio/Speaker4/speaker_04_phrase_01_take_02.wav,Turn on the light,val,speaker_04,en,light_on
+data/custom_dataset/audio/Speaker4/speaker_04_phrase_01_take_03.wav,Turn on the light,test,speaker_04,en,light_on
+data/custom_dataset/audio/Speaker4/speaker_04_phrase_02_take_01.wav,Turn off the light,train,speaker_04,en,light_off
+data/custom_dataset/audio/Speaker4/speaker_04_phrase_02_take_02.wav,Turn off the light,val,speaker_04,en,light_off
+data/custom_dataset/audio/Speaker4/speaker_04_phrase_02_take_03.wav,Turn off the light,test,speaker_04,en,light_off
+data/custom_dataset/audio/Speaker4/speaker_04_phrase_03_take_01.wav,Open the door,train,speaker_04,en,door_open
+data/custom_dataset/audio/Speaker4/speaker_04_phrase_03_take_02.wav,Open the door,val,speaker_04,en,door_open
+data/custom_dataset/audio/Speaker4/speaker_04_phrase_03_take_03.wav,Open the door,test,speaker_04,en,door_open
+data/custom_dataset/audio/Speaker4/speaker_04_phrase_04_take_01.wav,Close the door,train,speaker_04,en,door_close
+data/custom_dataset/audio/Speaker4/speaker_04_phrase_04_take_02.wav,Close the door,val,speaker_04,en,door_close
+data/custom_dataset/audio/Speaker4/speaker_04_phrase_04_take_03.wav,Close the door,test,speaker_04,en,door_close
+data/custom_dataset/audio/Speaker4/speaker_04_phrase_05_take_01.wav,Play the music,train,speaker_04,en,music_play
+data/custom_dataset/audio/Speaker4/speaker_04_phrase_05_take_02.wav,Play the music,val,speaker_04,en,music_play
+data/custom_dataset/audio/Speaker4/speaker_04_phrase_05_take_03.wav,Play the music,test,speaker_04,en,music_play
+data/custom_dataset/audio/Speaker4/speaker_04_phrase_06_take_01.wav,Stop the music,train,speaker_04,en,music_stop
+data/custom_dataset/audio/Speaker4/speaker_04_phrase_06_take_02.wav,Stop the music,val,speaker_04,en,music_stop
+data/custom_dataset/audio/Speaker4/speaker_04_phrase_06_take_03.wav,Stop the music,test,speaker_04,en,music_stop
+data/custom_dataset/audio/Speaker4/speaker_04_phrase_07_take_01.wav,Increase the volume,train,speaker_04,en,volume_up
+data/custom_dataset/audio/Speaker4/speaker_04_phrase_07_take_02.wav,Increase the volume,val,speaker_04,en,volume_up
+data/custom_dataset/audio/Speaker4/speaker_04_phrase_07_take_03.wav,Increase the volume,test,speaker_04,en,volume_up
+data/custom_dataset/audio/Speaker4/speaker_04_phrase_08_take_01.wav,Decrease the volume,train,speaker_04,en,volume_down
+data/custom_dataset/audio/Speaker4/speaker_04_phrase_08_take_02.wav,Decrease the volume,val,speaker_04,en,volume_down
+data/custom_dataset/audio/Speaker4/speaker_04_phrase_08_take_03.wav,Decrease the volume,test,speaker_04,en,volume_down
+data/custom_dataset/audio/Speaker4/speaker_04_phrase_09_take_01.wav,What is the time,train,speaker_04,en,what_time
+data/custom_dataset/audio/Speaker4/speaker_04_phrase_09_take_02.wav,What is the time,val,speaker_04,en,what_time
+data/custom_dataset/audio/Speaker4/speaker_04_phrase_09_take_03.wav,What is the time,test,speaker_04,en,what_time
+data/custom_dataset/audio/Speaker4/speaker_04_phrase_10_take_01.wav,Call my friend,train,speaker_04,en,call_friend
+data/custom_dataset/audio/Speaker4/speaker_04_phrase_10_take_02.wav,Call my friend,val,speaker_04,en,call_friend
+data/custom_dataset/audio/Speaker4/speaker_04_phrase_10_take_03.wav,Call my friend,test,speaker_04,en,call_friend
+data/custom_dataset/audio/Speaker5/speaker_05_phrase_01_take_01.wav,Turn on the light,train,speaker_05,en,light_on
+data/custom_dataset/audio/Speaker5/speaker_05_phrase_01_take_02.wav,Turn on the light,val,speaker_05,en,light_on
+data/custom_dataset/audio/Speaker5/speaker_05_phrase_01_take_03.wav,Turn on the light,test,speaker_05,en,light_on
+data/custom_dataset/audio/Speaker5/speaker_05_phrase_02_take_01.wav,Turn off the light,train,speaker_05,en,light_off
+data/custom_dataset/audio/Speaker5/speaker_05_phrase_02_take_02.wav,Turn off the light,val,speaker_05,en,light_off
+data/custom_dataset/audio/Speaker5/speaker_05_phrase_02_take_03.wav,Turn off the light,test,speaker_05,en,light_off
+data/custom_dataset/audio/Speaker5/speaker_05_phrase_03_take_01.wav,Open the door,train,speaker_05,en,door_open
+data/custom_dataset/audio/Speaker5/speaker_05_phrase_03_take_02.wav,Open the door,val,speaker_05,en,door_open
+data/custom_dataset/audio/Speaker5/speaker_05_phrase_03_take_03.wav,Open the door,test,speaker_05,en,door_open
+data/custom_dataset/audio/Speaker5/speaker_05_phrase_04_take_01.wav,Close the door,train,speaker_05,en,door_close
+data/custom_dataset/audio/Speaker5/speaker_05_phrase_04_take_02.wav,Close the door,val,speaker_05,en,door_close
+data/custom_dataset/audio/Speaker5/speaker_05_phrase_04_take_03.wav,Close the door,test,speaker_05,en,door_close
+data/custom_dataset/audio/Speaker5/speaker_05_phrase_05_take_01.wav,Play the music,train,speaker_05,en,music_play
+data/custom_dataset/audio/Speaker5/speaker_05_phrase_05_take_02.wav,Play the music,val,speaker_05,en,music_play
+data/custom_dataset/audio/Speaker5/speaker_05_phrase_05_take_03.wav,Play the music,test,speaker_05,en,music_play
+data/custom_dataset/audio/Speaker5/speaker_05_phrase_06_take_01.wav,Stop the music,train,speaker_05,en,music_stop
+data/custom_dataset/audio/Speaker5/speaker_05_phrase_06_take_02.wav,Stop the music,val,speaker_05,en,music_stop
+data/custom_dataset/audio/Speaker5/speaker_05_phrase_06_take_03.wav,Stop the music,test,speaker_05,en,music_stop
+data/custom_dataset/audio/Speaker5/speaker_05_phrase_07_take_01.wav,Increase the volume,train,speaker_05,en,volume_up
+data/custom_dataset/audio/Speaker5/speaker_05_phrase_07_take_02.wav,Increase the volume,val,speaker_05,en,volume_up
+data/custom_dataset/audio/Speaker5/speaker_05_phrase_07_take_03.wav,Increase the volume,test,speaker_05,en,volume_up
+data/custom_dataset/audio/Speaker5/speaker_05_phrase_08_take_01.wav,Decrease the volume,train,speaker_05,en,volume_down
+data/custom_dataset/audio/Speaker5/speaker_05_phrase_08_take_02.wav,Decrease the volume,val,speaker_05,en,volume_down
+data/custom_dataset/audio/Speaker5/speaker_05_phrase_08_take_03.wav,Decrease the volume,test,speaker_05,en,volume_down
+data/custom_dataset/audio/Speaker5/speaker_05_phrase_09_take_01.wav,What is the time,train,speaker_05,en,what_time
+data/custom_dataset/audio/Speaker5/speaker_05_phrase_09_take_02.wav,What is the time,val,speaker_05,en,what_time
+data/custom_dataset/audio/Speaker5/speaker_05_phrase_09_take_03.wav,What is the time,test,speaker_05,en,what_time
+data/custom_dataset/audio/Speaker5/speaker_05_phrase_10_take_01.wav,Call my friend,train,speaker_05,en,call_friend
+data/custom_dataset/audio/Speaker5/speaker_05_phrase_10_take_02.wav,Call my friend,val,speaker_05,en,call_friend
+data/custom_dataset/audio/Speaker5/speaker_05_phrase_10_take_03.wav,Call my friend,test,speaker_05,en,call_friend
+data/custom_dataset/audio/Speaker6/speaker_06_phrase_01_take_01.wav,Turn on the light,train,speaker_06,en,light_on
+data/custom_dataset/audio/Speaker6/speaker_06_phrase_01_take_02.wav,Turn on the light,val,speaker_06,en,light_on
+data/custom_dataset/audio/Speaker6/speaker_06_phrase_01_take_03.wav,Turn on the light,test,speaker_06,en,light_on
+data/custom_dataset/audio/Speaker6/speaker_06_phrase_02_take_01.wav,Turn off the light,train,speaker_06,en,light_off
+data/custom_dataset/audio/Speaker6/speaker_06_phrase_02_take_02.wav,Turn off the light,val,speaker_06,en,light_off
+data/custom_dataset/audio/Speaker6/speaker_06_phrase_02_take_03.wav,Turn off the light,test,speaker_06,en,light_off
+data/custom_dataset/audio/Speaker6/speaker_06_phrase_03_take_01.wav,Open the door,train,speaker_06,en,door_open
+data/custom_dataset/audio/Speaker6/speaker_06_phrase_03_take_02.wav,Open the door,val,speaker_06,en,door_open
+data/custom_dataset/audio/Speaker6/speaker_06_phrase_03_take_03.wav,Open the door,test,speaker_06,en,door_open
+data/custom_dataset/audio/Speaker6/speaker_06_phrase_04_take_01.wav,Close the door,train,speaker_06,en,door_close
+data/custom_dataset/audio/Speaker6/speaker_06_phrase_04_take_02.wav,Close the door,val,speaker_06,en,door_close
+data/custom_dataset/audio/Speaker6/speaker_06_phrase_04_take_03.wav,Close the door,test,speaker_06,en,door_close
+data/custom_dataset/audio/Speaker6/speaker_06_phrase_05_take_01.wav,Play the music,train,speaker_06,en,music_play
+data/custom_dataset/audio/Speaker6/speaker_06_phrase_05_take_02.wav,Play the music,val,speaker_06,en,music_play
+data/custom_dataset/audio/Speaker6/speaker_06_phrase_05_take_03.wav,Play the music,test,speaker_06,en,music_play
+data/custom_dataset/audio/Speaker6/speaker_06_phrase_06_take_01.wav,Stop the music,train,speaker_06,en,music_stop
+data/custom_dataset/audio/Speaker6/speaker_06_phrase_06_take_02.wav,Stop the music,val,speaker_06,en,music_stop
+data/custom_dataset/audio/Speaker6/speaker_06_phrase_06_take_03.wav,Stop the music,test,speaker_06,en,music_stop
+data/custom_dataset/audio/Speaker6/speaker_06_phrase_07_take_01.wav,Increase the volume,train,speaker_06,en,volume_up
+data/custom_dataset/audio/Speaker6/speaker_06_phrase_07_take_02.wav,Increase the volume,val,speaker_06,en,volume_up
+data/custom_dataset/audio/Speaker6/speaker_06_phrase_07_take_03.wav,Increase the volume,test,speaker_06,en,volume_up
+data/custom_dataset/audio/Speaker6/speaker_06_phrase_08_take_01.wav,Decrease the volume,train,speaker_06,en,volume_down
+data/custom_dataset/audio/Speaker6/speaker_06_phrase_08_take_02.wav,Decrease the volume,val,speaker_06,en,volume_down
+data/custom_dataset/audio/Speaker6/speaker_06_phrase_08_take_03.wav,Decrease the volume,test,speaker_06,en,volume_down
+data/custom_dataset/audio/Speaker6/speaker_06_phrase_09_take_01.wav,What is the time,train,speaker_06,en,what_time
+data/custom_dataset/audio/Speaker6/speaker_06_phrase_09_take_02.wav,What is the time,val,speaker_06,en,what_time
+data/custom_dataset/audio/Speaker6/speaker_06_phrase_09_take_03.wav,What is the time,test,speaker_06,en,what_time
+data/custom_dataset/audio/Speaker6/speaker_06_phrase_10_take_01.wav,Call my friend,train,speaker_06,en,call_friend
+data/custom_dataset/audio/Speaker6/speaker_06_phrase_10_take_02.wav,Call my friend,val,speaker_06,en,call_friend
+data/custom_dataset/audio/Speaker6/speaker_06_phrase_10_take_03.wav,Call my friend,test,speaker_06,en,call_friend
+data/custom_dataset/audio/Speaker7/speaker_07_phrase_01_take_01.wav,Turn on the light,train,speaker_07,en,light_on
+data/custom_dataset/audio/Speaker7/speaker_07_phrase_01_take_02.wav,Turn on the light,val,speaker_07,en,light_on
+data/custom_dataset/audio/Speaker7/speaker_07_phrase_01_take_03.wav,Turn on the light,test,speaker_07,en,light_on
+data/custom_dataset/audio/Speaker7/speaker_07_phrase_02_take_01.wav,Turn off the light,train,speaker_07,en,light_off
+data/custom_dataset/audio/Speaker7/speaker_07_phrase_02_take_02.wav,Turn off the light,val,speaker_07,en,light_off
+data/custom_dataset/audio/Speaker7/speaker_07_phrase_02_take_03.wav,Turn off the light,test,speaker_07,en,light_off
+data/custom_dataset/audio/Speaker7/speaker_07_phrase_03_take_01.wav,Open the door,train,speaker_07,en,door_open
+data/custom_dataset/audio/Speaker7/speaker_07_phrase_03_take_02.wav,Open the door,val,speaker_07,en,door_open
+data/custom_dataset/audio/Speaker7/speaker_07_phrase_03_take_03.wav,Open the door,test,speaker_07,en,door_open
+data/custom_dataset/audio/Speaker7/speaker_07_phrase_04_take_01.wav,Close the door,train,speaker_07,en,door_close
+data/custom_dataset/audio/Speaker7/speaker_07_phrase_04_take_02.wav,Close the door,val,speaker_07,en,door_close
+data/custom_dataset/audio/Speaker7/speaker_07_phrase_04_take_03.wav,Close the door,test,speaker_07,en,door_close
+data/custom_dataset/audio/Speaker7/speaker_07_phrase_05_take_01.wav,Play the music,train,speaker_07,en,music_play
+data/custom_dataset/audio/Speaker7/speaker_07_phrase_05_take_02.wav,Play the music,val,speaker_07,en,music_play
+data/custom_dataset/audio/Speaker7/speaker_07_phrase_05_take_03.wav,Play the music,test,speaker_07,en,music_play
+data/custom_dataset/audio/Speaker7/speaker_07_phrase_06_take_01.wav,Stop the music,train,speaker_07,en,music_stop
+data/custom_dataset/audio/Speaker7/speaker_07_phrase_06_take_02.wav,Stop the music,val,speaker_07,en,music_stop
+data/custom_dataset/audio/Speaker7/speaker_07_phrase_06_take_03.wav,Stop the music,test,speaker_07,en,music_stop
+data/custom_dataset/audio/Speaker7/speaker_07_phrase_07_take_01.wav,Increase the volume,train,speaker_07,en,volume_up
+data/custom_dataset/audio/Speaker7/speaker_07_phrase_07_take_02.wav,Increase the volume,val,speaker_07,en,volume_up
+data/custom_dataset/audio/Speaker7/speaker_07_phrase_07_take_03.wav,Increase the volume,test,speaker_07,en,volume_up
+data/custom_dataset/audio/Speaker7/speaker_07_phrase_08_take_01.wav,Decrease the volume,train,speaker_07,en,volume_down
+data/custom_dataset/audio/Speaker7/speaker_07_phrase_08_take_02.wav,Decrease the volume,val,speaker_07,en,volume_down
+data/custom_dataset/audio/Speaker7/speaker_07_phrase_08_take_03.wav,Decrease the volume,test,speaker_07,en,volume_down
+data/custom_dataset/audio/Speaker7/speaker_07_phrase_09_take_01.wav,What is the time,train,speaker_07,en,what_time
+data/custom_dataset/audio/Speaker7/speaker_07_phrase_09_take_02.wav,What is the time,val,speaker_07,en,what_time
+data/custom_dataset/audio/Speaker7/speaker_07_phrase_09_take_03.wav,What is the time,test,speaker_07,en,what_time
+data/custom_dataset/audio/Speaker7/speaker_07_phrase_10_take_01.wav,Call my friend,train,speaker_07,en,call_friend
+data/custom_dataset/audio/Speaker7/speaker_07_phrase_10_take_02.wav,Call my friend,val,speaker_07,en,call_friend
+data/custom_dataset/audio/Speaker7/speaker_07_phrase_10_take_03.wav,Call my friend,test,speaker_07,en,call_friend
+data/custom_dataset/audio/Speaker8/speaker_08_phrase_01_take_01.wav,Turn on the light,train,speaker_08,en,light_on
+data/custom_dataset/audio/Speaker8/speaker_08_phrase_01_take_02.wav,Turn on the light,val,speaker_08,en,light_on
+data/custom_dataset/audio/Speaker8/speaker_08_phrase_01_take_03.wav,Turn on the light,test,speaker_08,en,light_on
+data/custom_dataset/audio/Speaker8/speaker_08_phrase_02_take_01.wav,Turn off the light,train,speaker_08,en,light_off
+data/custom_dataset/audio/Speaker8/speaker_08_phrase_02_take_02.wav,Turn off the light,val,speaker_08,en,light_off
+data/custom_dataset/audio/Speaker8/speaker_08_phrase_02_take_03.wav,Turn off the light,test,speaker_08,en,light_off
+data/custom_dataset/audio/Speaker8/speaker_08_phrase_03_take_01.wav,Open the door,train,speaker_08,en,door_open
+data/custom_dataset/audio/Speaker8/speaker_08_phrase_03_take_02.wav,Open the door,val,speaker_08,en,door_open
+data/custom_dataset/audio/Speaker8/speaker_08_phrase_03_take_03.wav,Open the door,test,speaker_08,en,door_open
+data/custom_dataset/audio/Speaker8/speaker_08_phrase_04_take_01.wav,Close the door,train,speaker_08,en,door_close
+data/custom_dataset/audio/Speaker8/speaker_08_phrase_04_take_02.wav,Close the door,val,speaker_08,en,door_close
+data/custom_dataset/audio/Speaker8/speaker_08_phrase_04_take_03.wav,Close the door,test,speaker_08,en,door_close
+data/custom_dataset/audio/Speaker8/speaker_08_phrase_05_take_01.wav,Play the music,train,speaker_08,en,music_play
+data/custom_dataset/audio/Speaker8/speaker_08_phrase_05_take_02.wav,Play the music,val,speaker_08,en,music_play
+data/custom_dataset/audio/Speaker8/speaker_08_phrase_05_take_03.wav,Play the music,test,speaker_08,en,music_play
+data/custom_dataset/audio/Speaker8/speaker_08_phrase_06_take_01.wav,Stop the music,train,speaker_08,en,music_stop
+data/custom_dataset/audio/Speaker8/speaker_08_phrase_06_take_02.wav,Stop the music,val,speaker_08,en,music_stop
+data/custom_dataset/audio/Speaker8/speaker_08_phrase_06_take_03.wav,Stop the music,test,speaker_08,en,music_stop
+data/custom_dataset/audio/Speaker8/speaker_08_phrase_07_take_01.wav,Increase the volume,train,speaker_08,en,volume_up
+data/custom_dataset/audio/Speaker8/speaker_08_phrase_07_take_02.wav,Increase the volume,val,speaker_08,en,volume_up
+data/custom_dataset/audio/Speaker8/speaker_08_phrase_07_take_03.wav,Increase the volume,test,speaker_08,en,volume_up
+data/custom_dataset/audio/Speaker8/speaker_08_phrase_08_take_01.wav,Decrease the volume,train,speaker_08,en,volume_down
+data/custom_dataset/audio/Speaker8/speaker_08_phrase_08_take_02.wav,Decrease the volume,val,speaker_08,en,volume_down
+data/custom_dataset/audio/Speaker8/speaker_08_phrase_08_take_03.wav,Decrease the volume,test,speaker_08,en,volume_down
+data/custom_dataset/audio/Speaker8/speaker_08_phrase_09_take_01.wav,What is the time,train,speaker_08,en,what_time
+data/custom_dataset/audio/Speaker8/speaker_08_phrase_09_take_02.wav,What is the time,val,speaker_08,en,what_time
+data/custom_dataset/audio/Speaker8/speaker_08_phrase_09_take_03.wav,What is the time,test,speaker_08,en,what_time
+data/custom_dataset/audio/Speaker8/speaker_08_phrase_10_take_01.wav,Call my friend,train,speaker_08,en,call_friend
+data/custom_dataset/audio/Speaker8/speaker_08_phrase_10_take_02.wav,Call my friend,val,speaker_08,en,call_friend
+data/custom_dataset/audio/Speaker8/speaker_08_phrase_10_take_03.wav,Call my friend,test,speaker_08,en,call_friend
+data/custom_dataset/audio/Speaker9/speaker_09_phrase_01_take_01.wav,Turn on the light,train,speaker_09,en,light_on
+data/custom_dataset/audio/Speaker9/speaker_09_phrase_01_take_02.wav,Turn on the light,val,speaker_09,en,light_on
+data/custom_dataset/audio/Speaker9/speaker_09_phrase_01_take_03.wav,Turn on the light,test,speaker_09,en,light_on
+data/custom_dataset/audio/Speaker9/speaker_09_phrase_02_take_01.wav,Turn off the light,train,speaker_09,en,light_off
+data/custom_dataset/audio/Speaker9/speaker_09_phrase_02_take_02.wav,Turn off the light,val,speaker_09,en,light_off
+data/custom_dataset/audio/Speaker9/speaker_09_phrase_02_take_03.wav,Turn off the light,test,speaker_09,en,light_off
+data/custom_dataset/audio/Speaker9/speaker_09_phrase_03_take_01.wav,Open the door,train,speaker_09,en,door_open
+data/custom_dataset/audio/Speaker9/speaker_09_phrase_03_take_02.wav,Open the door,val,speaker_09,en,door_open
+data/custom_dataset/audio/Speaker9/speaker_09_phrase_03_take_03.wav,Open the door,test,speaker_09,en,door_open
+data/custom_dataset/audio/Speaker9/speaker_09_phrase_04_take_01.wav,Close the door,train,speaker_09,en,door_close
+data/custom_dataset/audio/Speaker9/speaker_09_phrase_04_take_02.wav,Close the door,val,speaker_09,en,door_close
+data/custom_dataset/audio/Speaker9/speaker_09_phrase_04_take_03.wav,Close the door,test,speaker_09,en,door_close
+data/custom_dataset/audio/Speaker9/speaker_09_phrase_05_take_01.wav,Play the music,train,speaker_09,en,music_play
+data/custom_dataset/audio/Speaker9/speaker_09_phrase_05_take_02.wav,Play the music,val,speaker_09,en,music_play
+data/custom_dataset/audio/Speaker9/speaker_09_phrase_05_take_03.wav,Play the music,test,speaker_09,en,music_play
+data/custom_dataset/audio/Speaker9/speaker_09_phrase_06_take_01.wav,Stop the music,train,speaker_09,en,music_stop
+data/custom_dataset/audio/Speaker9/speaker_09_phrase_06_take_02.wav,Stop the music,val,speaker_09,en,music_stop
+data/custom_dataset/audio/Speaker9/speaker_09_phrase_06_take_03.wav,Stop the music,test,speaker_09,en,music_stop
+data/custom_dataset/audio/Speaker9/speaker_09_phrase_07_take_01.wav,Increase the volume,train,speaker_09,en,volume_up
+data/custom_dataset/audio/Speaker9/speaker_09_phrase_07_take_02.wav,Increase the volume,val,speaker_09,en,volume_up
+data/custom_dataset/audio/Speaker9/speaker_09_phrase_07_take_03.wav,Increase the volume,test,speaker_09,en,volume_up
+data/custom_dataset/audio/Speaker9/speaker_09_phrase_08_take_01.wav,Decrease the volume,train,speaker_09,en,volume_down
+data/custom_dataset/audio/Speaker9/speaker_09_phrase_08_take_02.wav,Decrease the volume,val,speaker_09,en,volume_down
+data/custom_dataset/audio/Speaker9/speaker_09_phrase_08_take_03.wav,Decrease the volume,test,speaker_09,en,volume_down
+data/custom_dataset/audio/Speaker9/speaker_09_phrase_09_take_01.wav,What is the time,train,speaker_09,en,what_time
+data/custom_dataset/audio/Speaker9/speaker_09_phrase_09_take_02.wav,What is the time,val,speaker_09,en,what_time
+data/custom_dataset/audio/Speaker9/speaker_09_phrase_09_take_03.wav,What is the time,test,speaker_09,en,what_time
+data/custom_dataset/audio/Speaker9/speaker_09_phrase_10_take_01.wav,Call my friend,train,speaker_09,en,call_friend
+data/custom_dataset/audio/Speaker9/speaker_09_phrase_10_take_02.wav,Call my friend,val,speaker_09,en,call_friend
+data/custom_dataset/audio/Speaker9/speaker_09_phrase_10_take_03.wav,Call my friend,test,speaker_09,en,call_friend
+data/custom_dataset/audio/Speaker10/speaker_10_phrase_01_take_01.wav,Turn on the light,train,speaker_10,en,light_on
+data/custom_dataset/audio/Speaker10/speaker_10_phrase_01_take_02.wav,Turn on the light,val,speaker_10,en,light_on
+data/custom_dataset/audio/Speaker10/speaker_10_phrase_01_take_03.wav,Turn on the light,test,speaker_10,en,light_on
+data/custom_dataset/audio/Speaker10/speaker_10_phrase_02_take_01.wav,Turn off the light,train,speaker_10,en,light_off
+data/custom_dataset/audio/Speaker10/speaker_10_phrase_02_take_02.wav,Turn off the light,val,speaker_10,en,light_off
+data/custom_dataset/audio/Speaker10/speaker_10_phrase_02_take_03.wav,Turn off the light,test,speaker_10,en,light_off
+data/custom_dataset/audio/Speaker10/speaker_10_phrase_03_take_01.wav,Open the door,train,speaker_10,en,door_open
+data/custom_dataset/audio/Speaker10/speaker_10_phrase_03_take_02.wav,Open the door,val,speaker_10,en,door_open
+data/custom_dataset/audio/Speaker10/speaker_10_phrase_03_take_03.wav,Open the door,test,speaker_10,en,door_open
+data/custom_dataset/audio/Speaker10/speaker_10_phrase_04_take_01.wav,Close the door,train,speaker_10,en,door_close
+data/custom_dataset/audio/Speaker10/speaker_10_phrase_04_take_02.wav,Close the door,val,speaker_10,en,door_close
+data/custom_dataset/audio/Speaker10/speaker_10_phrase_04_take_03.wav,Close the door,test,speaker_10,en,door_close
+data/custom_dataset/audio/Speaker10/speaker_10_phrase_05_take_01.wav,Play the music,train,speaker_10,en,music_play
+data/custom_dataset/audio/Speaker10/speaker_10_phrase_05_take_02.wav,Play the music,val,speaker_10,en,music_play
+data/custom_dataset/audio/Speaker10/speaker_10_phrase_05_take_03.wav,Play the music,test,speaker_10,en,music_play
+data/custom_dataset/audio/Speaker10/speaker_10_phrase_06_take_01.wav,Stop the music,train,speaker_10,en,music_stop
+data/custom_dataset/audio/Speaker10/speaker_10_phrase_06_take_02.wav,Stop the music,val,speaker_10,en,music_stop
+data/custom_dataset/audio/Speaker10/speaker_10_phrase_06_take_03.wav,Stop the music,test,speaker_10,en,music_stop
+data/custom_dataset/audio/Speaker10/speaker_10_phrase_07_take_01.wav,Increase the volume,train,speaker_10,en,volume_up
+data/custom_dataset/audio/Speaker10/speaker_10_phrase_07_take_02.wav,Increase the volume,val,speaker_10,en,volume_up
+data/custom_dataset/audio/Speaker10/speaker_10_phrase_07_take_03.wav,Increase the volume,test,speaker_10,en,volume_up
+data/custom_dataset/audio/Speaker10/speaker_10_phrase_08_take_01.wav,Decrease the volume,train,speaker_10,en,volume_down
+data/custom_dataset/audio/Speaker10/speaker_10_phrase_08_take_02.wav,Decrease the volume,val,speaker_10,en,volume_down
+data/custom_dataset/audio/Speaker10/speaker_10_phrase_08_take_03.wav,Decrease the volume,test,speaker_10,en,volume_down
+data/custom_dataset/audio/Speaker10/speaker_10_phrase_09_take_01.wav,What is the time,train,speaker_10,en,what_time
+data/custom_dataset/audio/Speaker10/speaker_10_phrase_09_take_02.wav,What is the time,val,speaker_10,en,what_time
+data/custom_dataset/audio/Speaker10/speaker_10_phrase_09_take_03.wav,What is the time,test,speaker_10,en,what_time
+data/custom_dataset/audio/Speaker10/speaker_10_phrase_10_take_01.wav,Call my friend,train,speaker_10,en,call_friend
+data/custom_dataset/audio/Speaker10/speaker_10_phrase_10_take_02.wav,Call my friend,val,speaker_10,en,call_friend
+data/custom_dataset/audio/Speaker10/speaker_10_phrase_10_take_03.wav,Call my friend,test,speaker_10,en,call_friend

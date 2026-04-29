@@ -290,6 +290,63 @@ select {
   transition: width 120ms ease;
 }
 
+.summary-panel {
+  min-height: 176px;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.summary-card,
+.summary-result {
+  display: grid;
+  gap: 8px;
+  padding: 13px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-soft);
+}
+
+.summary-card {
+  min-height: 78px;
+}
+
+.summary-card span,
+.summary-result span {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.summary-card strong,
+.summary-result strong {
+  align-self: end;
+  overflow: hidden;
+  color: #252b35;
+  font-size: 0.94rem;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.summary-result {
+  min-height: 62px;
+  margin-top: 10px;
+  background: #17191f;
+}
+
+.summary-result span {
+  color: #9ee7df;
+}
+
+.summary-result strong {
+  color: #ffffff;
+}
+
 .result-panel {
   min-height: 308px;
   background: #17191f;
@@ -382,6 +439,7 @@ select {
 
   .mode-grid,
   .input-grid,
+  .summary-grid,
   .command-grid,
   .actions {
     grid-template-columns: 1fr;
