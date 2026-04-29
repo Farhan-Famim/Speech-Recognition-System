@@ -9,12 +9,12 @@ const stopButton = document.getElementById("stop-recording");
 const recordStatus = document.getElementById("record-status");
 const meterFill = document.getElementById("meter-fill");
 const inferenceMode = document.getElementById("inference-mode");
-const whisperModelInput = document.getElementById("whisper-model");
 const uploadHelp = document.getElementById("upload-help");
 const uploadTitle = document.getElementById("upload-title");
 const uploadSubmit = document.getElementById("upload-submit");
 const recordHelp = document.getElementById("record-help");
 const resultTitle = document.getElementById("result-title");
+const modeStatus = document.getElementById("mode-status");
 
 let audioContext = null;
 let audioStream = null;
@@ -22,6 +22,7 @@ let processor = null;
 let recordingFrames = [];
 let recordingSampleRate = 44100;
 let isRecording = false;
+const defaultWhisperModel = "base";
 
 audioFileInput.addEventListener("change", () => {
   const file = audioFileInput.files[0];
@@ -46,7 +47,7 @@ uploadForm.addEventListener("submit", async (event) => {
   const formData = new FormData();
   formData.append("audio", file);
   formData.append("mode", mode);
-  formData.append("model", whisperModelInput.value.trim() || "base");
+  formData.append("model", defaultWhisperModel);
 
   try {
     const response = await fetch("/api/predict-file", {
@@ -77,7 +78,7 @@ stopButton.addEventListener("click", async () => {
     const formData = new FormData();
     formData.append("audio", wavBlob, "live-recording.wav");
     formData.append("mode", mode);
-    formData.append("model", whisperModelInput.value.trim() || "base");
+    formData.append("model", defaultWhisperModel);
 
     const response = await fetch("/api/predict-recording", {
       method: "POST",
@@ -106,13 +107,13 @@ function handleTranscriptResponse(payload, fallbackName) {
 
   if (payload.mode === "trained") {
     const confidence = typeof payload.confidence === "number" ? `${(payload.confidence * 100).toFixed(1)}%` : "n/a";
-    resultMeta.textContent = `${payload.filename || fallbackName} • ${payload.command_id} • confidence: ${confidence}`;
+    resultMeta.textContent = `${payload.filename || fallbackName} / ${payload.command_id} / confidence: ${confidence}`;
     resultText.textContent = `${payload.command_text}\n\nCommand ID: ${payload.command_id}`;
-    showFeedback("Trained-model prediction completed successfully.", "success");
+    showFeedback("Prediction completed.", "success");
   } else {
-    resultMeta.textContent = `${payload.filename || fallbackName} • whisper:${payload.model}`;
+    resultMeta.textContent = `${payload.filename || fallbackName} / whisper:${payload.model}`;
     resultText.textContent = payload.transcript || "(No text returned)";
-    showFeedback("Whisper transcription completed successfully.", "success");
+    showFeedback("Transcription completed.", "success");
   }
 }
 
@@ -171,13 +172,15 @@ function syncModeUi() {
   const trainedMode = inferenceMode.value === "trained";
 
   uploadHelp.textContent = trainedMode
-    ? "Upload a converted WAV file"
+    ? "WAV only"
     : "Upload WAV, MP3, M4A, MP4, or WebM";
-  uploadTitle.textContent = trainedMode ? "Select a WAV file" : "Select an audio file";
+  uploadTitle.textContent = trainedMode ? "Choose WAV" : "Choose audio";
+  audioFileInput.accept = trainedMode
+    ? ".wav,audio/wav"
+    : ".wav,.mp3,.m4a,.mp4,.mpeg,.mpga,.webm,audio/*";
   uploadSubmit.textContent = trainedMode ? "Predict Command" : "Transcribe with Whisper";
-  recordHelp.textContent = trainedMode
-    ? "Record in the browser and predict the command"
-    : "Record in the browser and transcribe with Whisper";
+  recordHelp.textContent = trainedMode ? "Browser WAV" : "Browser audio";
+  modeStatus.textContent = trainedMode ? "Trained model" : "Whisper";
   resultTitle.textContent = trainedMode ? "Predicted Command" : "Transcript";
   resultText.textContent = trainedMode
     ? "Your predicted command will appear here."

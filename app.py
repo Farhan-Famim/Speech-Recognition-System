@@ -10,6 +10,8 @@ from command_model import DEFAULT_CHECKPOINT, predict_command
 from transcriber import DEFAULT_MODEL, allowed_audio_file, transcribe_file
 
 BASE_DIR = Path(__file__).resolve().parent
+DEFAULT_WEB_PORT = 5050
+DEFAULT_WHISPER_LANGUAGE = "en"
 app = Flask(__name__)
 app.config["MAX_CONTENT_LENGTH"] = 25 * 1024 * 1024
 app.config["UPLOAD_FOLDER"] = BASE_DIR / "uploads"
@@ -45,7 +47,7 @@ def run_inference(audio_path: Path, mode: str, whisper_model: str = DEFAULT_MODE
         }
 
     if mode == "whisper":
-        transcript = transcribe_file(audio_path, model_name=whisper_model)
+        transcript = transcribe_file(audio_path, model_name=whisper_model, language=DEFAULT_WHISPER_LANGUAGE)
         return {
             "mode": "whisper",
             "model": whisper_model,
@@ -107,4 +109,4 @@ def predict_recording():
 
 
 if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=5000, debug=False, use_reloader=False)
+    app.run(host="127.0.0.1", port=DEFAULT_WEB_PORT, debug=False, use_reloader=False)

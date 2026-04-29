@@ -9,11 +9,17 @@ from torch.utils.data import DataLoader
 
 from command_model import CommandCNN, CommandDataset, evaluate_model, load_manifest
 
+DEFAULT_EVALUATION_CHECKPOINT = "artifacts/command_model_resplit/best_command_model.pt"
+
 
 def build_parser():
     parser = argparse.ArgumentParser(description="Evaluate a trained speech-command classifier.")
     parser.add_argument("--manifest", default="custom_dataset/metadata.csv", help="Path to your metadata CSV.")
-    parser.add_argument("--checkpoint", default="artifacts/command_model/best_command_model.pt", help="Saved model checkpoint.")
+    parser.add_argument(
+        "--checkpoint",
+        default=DEFAULT_EVALUATION_CHECKPOINT,
+        help="Saved model checkpoint. Use command_model_resplit for report accuracy; command_model is the train-all demo model.",
+    )
     parser.add_argument("--split", default="test", help="Which split to evaluate.")
     parser.add_argument("--batch-size", type=int, default=8, help="Mini-batch size.")
     return parser
@@ -24,6 +30,12 @@ def main():
     base_dir = Path(__file__).resolve().parent
     manifest_path = base_dir / args.manifest
     checkpoint_path = base_dir / args.checkpoint
+
+    if checkpoint_path.parent.name == "command_model":
+        print(
+            "WARNING: You are evaluating the train-all demo checkpoint. "
+            "Do not report this as held-out test accuracy.\n"
+        )
 
     checkpoint = torch.load(checkpoint_path, map_location="cpu")
     label_to_index = checkpoint["label_to_index"]

@@ -88,7 +88,7 @@ def load_wav_audio(audio_path: Path | str, target_rate: int = 16000) -> np.ndarr
     return audio
 
 
-def transcribe_file(audio_path: Path | str, model_name: str = DEFAULT_MODEL) -> str:
+def transcribe_file(audio_path: Path | str, model_name: str = DEFAULT_MODEL, language: str | None = None) -> str:
     path = Path(audio_path)
     if not path.exists():
         raise FileNotFoundError(f"Audio file not found: {path}")
@@ -105,7 +105,10 @@ def transcribe_file(audio_path: Path | str, model_name: str = DEFAULT_MODEL) -> 
             "ignore",
             message="FP16 is not supported on CPU; using FP32 instead",
         )
-        result = model.transcribe(audio_input, fp16=False)
+        options = {"fp16": False}
+        if language:
+            options["language"] = language
+        result = model.transcribe(audio_input, **options)
 
     return result["text"].strip()
 
@@ -130,7 +133,7 @@ def evaluate_manifest(
             results.append({"file": row["audio_path"], "error": f"File not found: {audio_path}"})
             continue
 
-        predicted = transcribe_file(audio_path, model_name=model_name)
+        predicted = transcribe_file(audio_path, model_name=model_name, language=row.get("language") or None)
         ground_truth = row["transcript"]
         gt_clean = normalize_text(ground_truth)
         pred_clean = normalize_text(predicted)

@@ -27,16 +27,49 @@ python3 -m venv .venv
 pip install -r requirements.txt
 python temp.py --input path/to/file.wav
 python main.py --manifest custom_dataset/metadata.csv --split test
-python train_command_model.py --manifest custom_dataset/metadata.csv
+python train_command_model.py --manifest custom_dataset/metadata.csv --resplit-by-take --output-dir artifacts/command_model_resplit
 python evaluate_command_model.py --manifest custom_dataset/metadata.csv
 python app.py
 ```
 
-Then open `http://127.0.0.1:5000`.
+Then open `http://127.0.0.1:5050`.
+
+## Training and evaluation checkpoints
+
+Use the resplit checkpoint for report accuracy:
+
+```bash
+python train_command_model.py \
+  --manifest custom_dataset/metadata.csv \
+  --output-dir artifacts/command_model_resplit \
+  --resplit-by-take \
+  --epochs 60 \
+  --batch-size 16 \
+  --learning-rate 5e-4 \
+  --weight-decay 1e-4
+
+python evaluate_command_model.py --manifest custom_dataset/metadata.csv --split test
+```
+
+Use the train-all checkpoint for the final demo app:
+
+```bash
+python train_command_model.py \
+  --manifest custom_dataset/metadata.csv \
+  --output-dir artifacts/command_model \
+  --train-all \
+  --epochs 60 \
+  --batch-size 16 \
+  --learning-rate 5e-4 \
+  --weight-decay 1e-4
+```
+
+The train-all checkpoint uses every recording, so it is useful for the demo but should not be reported as held-out test accuracy.
 
 ## Notes
 
 - The bundled `venv/` folder in this repository is a Windows virtual environment, so it should not be used on macOS.
+- The web app runs on port `5050` to avoid the macOS port `5000` AirPlay conflict.
 - Local `.wav` files can now run without `ffmpeg`.
 - Live microphone recording is captured in the browser and encoded to WAV before upload, so it also avoids `ffmpeg` for the browser recording path.
 - Whisper still needs to download a model such as `base` the first time you run it, unless that model is already cached.

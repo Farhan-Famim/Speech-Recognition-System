@@ -3,90 +3,123 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Speech Recognition UI</title>
+  <title>Speech Recognition System</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-  <main class="shell">
-    <section class="hero">
-      <p class="eyebrow">Speech Command Demo</p>
-      <h1>Switch between your trained model and Whisper baseline during the same demo.</h1>
-      <p class="lede">
-        Use the trained model to showcase your own work, then switch to Whisper baseline
-        to compare how a large pre-trained recognizer behaves on the same commands.
-      </p>
-    </section>
-
-    <section class="panel mode-panel">
-      <div class="panel-head">
-        <h2>Inference Mode</h2>
-        <span>Switch instantly during your presentation</span>
+  <main class="app-shell">
+    <header class="topbar">
+      <div>
+        <h1>Speech Recognition System</h1>
       </div>
-      <div class="mode-grid">
-        <label class="field">
-          <span>Mode</span>
-          <select id="inference-mode">
-            <option value="trained">Trained Model</option>
-            <option value="whisper">Whisper Baseline</option>
-          </select>
-        </label>
-        <label class="field">
-          <span>Trained checkpoint</span>
-          <input id="checkpoint-path" type="text" value="{{ checkpoint_path }}" readonly>
-        </label>
-        <label class="field">
-          <span>Whisper model</span>
-          <input id="whisper-model" type="text" value="{{ default_model }}">
-        </label>
-      </div>
-    </section>
+    </header>
 
-    <section class="grid">
-      <article class="panel">
-        <div class="panel-head">
-          <h2>Audio File</h2>
-          <span id="upload-help">Upload a converted WAV file</span>
-        </div>
-        <form id="upload-form" class="stack">
-          <label class="dropzone" for="audio-file">
-            <input id="audio-file" name="audio" type="file" accept=".wav,.mp3,.m4a,.mp4,.mpeg,.mpga,.webm,audio/*">
-            <strong id="upload-title">Select a WAV file</strong>
-            <span id="selected-file">No file selected</span>
-          </label>
-          <button type="submit" class="button" id="upload-submit">Predict Command</button>
-        </form>
-      </article>
-
-      <article class="panel">
-        <div class="panel-head">
-          <h2>Live Recording</h2>
-          <span id="record-help">Record in the browser and predict the command</span>
-        </div>
-        <div class="stack">
-          <div class="record-box">
-            <p id="record-status">Microphone idle</p>
-            <div class="meter" aria-hidden="true">
-              <div id="meter-fill"></div>
+    <section class="workspace">
+      <aside class="control-column">
+        <section class="panel">
+          <div class="panel-head">
+            <div>
+              <p class="section-kicker">Model</p>
+              <h2>Inference</h2>
             </div>
+            <span id="mode-status">Ready</span>
           </div>
-          <div class="actions">
-            <button id="start-recording" class="button" type="button">Start Recording</button>
-            <button id="stop-recording" class="button button-ghost" type="button" disabled>Stop Recording</button>
+          <div class="mode-grid">
+            <label class="field">
+              <span>Mode</span>
+              <select id="inference-mode">
+                <option value="trained">Trained Model</option>
+                <option value="whisper">Whisper Baseline</option>
+              </select>
+            </label>
           </div>
-        </div>
-      </article>
-    </section>
+        </section>
 
-    <section class="panel result-panel">
-      <div class="panel-head">
-        <h2 id="result-title">Predicted Command</h2>
-        <span id="result-meta">Waiting for input</span>
-      </div>
-      <div id="feedback" class="feedback" hidden></div>
-      <pre id="result-text" class="result-text">Your result will appear here.</pre>
+        <section class="panel input-panel">
+          <div class="panel-head">
+            <div>
+              <p class="section-kicker">Input</p>
+              <h2>Audio Source</h2>
+            </div>
+            <span>WAV preferred</span>
+          </div>
+
+          <div class="input-grid">
+            <article class="input-block">
+              <div class="block-head">
+                <h3>Audio File</h3>
+                <span id="upload-help">WAV only</span>
+              </div>
+              <form id="upload-form" class="stack">
+                <label class="dropzone" for="audio-file">
+                  <input id="audio-file" name="audio" type="file" accept=".wav,audio/wav">
+                  <strong id="upload-title">Choose WAV</strong>
+                  <span id="selected-file">No file selected</span>
+                </label>
+                <button type="submit" class="button" id="upload-submit">Predict Command</button>
+              </form>
+            </article>
+
+            <article class="input-block">
+              <div class="block-head">
+                <h3>Live Recording</h3>
+                <span id="record-help">Browser WAV</span>
+              </div>
+              <div class="stack">
+                <div class="record-box">
+                  <p id="record-status">Microphone idle</p>
+                  <div class="meter" aria-hidden="true">
+                    <div id="meter-fill"></div>
+                  </div>
+                </div>
+                <div class="actions">
+                  <button id="start-recording" class="button" type="button">Start</button>
+                  <button id="stop-recording" class="button button-secondary" type="button" disabled>Stop</button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+      </aside>
+
+      <section class="result-column">
+        <section class="panel result-panel">
+          <div class="panel-head">
+            <div>
+              <p class="section-kicker">Output</p>
+              <h2 id="result-title">Predicted Command</h2>
+            </div>
+            <span id="result-meta">Waiting for input</span>
+          </div>
+          <div id="feedback" class="feedback" hidden></div>
+          <pre id="result-text" class="result-text">Your predicted command will appear here.</pre>
+        </section>
+
+        <section class="panel command-panel">
+          <div class="panel-head">
+            <div>
+              <p class="section-kicker">Reference</p>
+              <h2>Command Set</h2>
+            </div>
+            <span>10 labels</span>
+          </div>
+          <div class="command-grid">
+            <span>Turn on the light</span>
+            <span>Turn off the light</span>
+            <span>Open the door</span>
+            <span>Close the door</span>
+            <span>Play the music</span>
+            <span>Stop the music</span>
+            <span>Increase the volume</span>
+            <span>Decrease the volume</span>
+            <span>What is the time</span>
+            <span>Call my friend</span>
+          </div>
+        </section>
+      </section>
     </section>
   </main>
 
